@@ -1,0 +1,38 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Foggy Tree</title>
+    <link rel="icon" href="{{ url_for('static', filename='foggyTreeIcon.ico') }}"> <!-- Add this line -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img class="sidebar-icon" src="{{ url_for('static', filename='images/foggyTreeIcon.png') }}" alt="Icon">
+            <h2>foggytree</h2>
+        </div>
+        <a href="/" class="sidebar-link {{ 'active' if url_path == '/' else '' }}">
+            <img src="{{ url_for('static', filename='images/homeIcon.png') }}" alt="Home">
+            <span>Home</span>
+        </a>
+        <a href="/media" class="sidebar-link {{ 'active' if url_path == '/media' else '' }}">
+            <img src="{{ url_for('static', filename='images/mediaIcon.png') }}" alt="Media">
+            <span>Media</span>
+        </a>
+        <a href="/custom_services" class="sidebar-link {{ 'active' if url_path == '/custom_services' else '' }}">
+            <img src="{{ url_for('static', filename='images/customServicesIcon.png') }}" alt="Services">
+            <span>Custom Services</span>
+        </a>
+        <a href="service_management" class="sidebar-link {{ 'active' if url_path == '/service_management' else '' }}">
+            <img src="{{ url_for('static', filename='images/serviceManagementIcon.png') }}" alt="Service Management">
+            <span>Service Management</span>
+        </a>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>
