@@ -28,4 +28,4 @@ def overseerr():
     return render_template("overseerr.html", url_path=request.path)
 
 if __name__ == "__main__":
-    app.run(debug=False, port=5557)
+    app.run(host='0.0.0.0', debug=False, port=5557)
